@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<style>
+    input {
+        text-align: right;
+    }
+</style>
+    <table>
+        <tr>
+            <td align="center">
+                <!--     hang 1 cot 1        -->
+                <label for="amount"><strong>Amount</strong></label>
+            </td>
+            <td>
+                <!--     hang 1 cot 2        -->
+                <label for="currency"><strong>Form Currency</strong></label>
+            </td>
+            <td>
+                <!--     hang 1 cot 3        -->
+                <label for="currency2"><strong>To Currency</strong></label>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!--     hang 2 cot 1        -->
+                <input type="number" name="amount" id="amount" placeholder="0">
+            </td>
+            <td>
+                <!--     hang 2 cot 2        -->
+                <select name="currency" id="currency">
+                    <option value="VND">VietNam Dong</option>
+                    <option value="USD">USD</option>
+                </select>
+            </td>
+            <td>
+                <!--     hang 2 cot 3        -->
+                <select name="currency2" id="currency2">
+                    <option value="USD">USD</option>
+                    <option value="VND">VietNam Dong</option>
+                </select>
+            </td>
+            <td>
+                <!--     hang 2 cot 4        -->
+                <button onclick="changeCurrency()">Change</button>
+            </td>
+        </tr>
+    </table>
+    <p id="result"></p>
+    <script>
+        function changeCurrency() {
+            let amount = document.getElementById("amount").value;
+            let currency1 = document.getElementById("currency").value;
+            let currency2 = document.getElementById("currency2").value;
+            let result = 0;
+            //let info =
+            if(currency1 === "VND" && currency2 === "VND"){
+                result = amount;
+                document.getElementById("result").innerHTML = result + "VND";
+            }
+            if(currency1 === "USD" && currency2 === "USD"){
+                result = amount;
+                document.getElementById("result").innerHTML = result + "USD";
+            }
+            if(currency1 === "VND" && currency2 === "USD"){
+                result = amount / 23000;
+                document.getElementById("result").innerHTML = result + "USD";
+            }
+            if(currency1 === "USD" && currency2 === "VND"){
+                result = amount * 23000;
+                document.getElementById("result").innerHTML = result + "VND";
+                console.log("usdddddd");
+            }
+        }
+    </script>
+</body>
+</html>
